@@ -5,13 +5,13 @@ from django.http  import HttpResponse,Http404
 
 # Create your views here.
 
-def welcome(request):
+def base(request):
     return HttpResponse('Welcome to the Moringa Tribune')
 
 def homepage(request):
     return HttpResponse('Welcome te')
 
-def profile_page(request):
+def user_profile(request):
     return HttpResponse('Welcome to ')
 
 def viewphoto(request):
