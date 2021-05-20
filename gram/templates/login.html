@@ -1,1 +1,48 @@
-<h5>doc</h5>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Log in form design</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/instagram-nav.css' %}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="text">Log in to Continue</div>
+      <div class="page">
+        <div class="title">instagram</div>
+        <form>
+          <input type="text" placeholder="Phone number, username, or email" />
+          <input type="password" placeholder="Password" />
+          <button>Log in</button>
+          <div class="option">OR</div>
+        </form>
+        <div class="fblink">
+          <span class="fab fa-facebook"></span>
+          <a href="#">Log in with Facebook</a>
+        </div>
+
+        <div class="forget-id">
+          <a href="#">Forget password?</a>
+        </div>
+
+        <div class="signup">
+          <p>Don't have an account?<a href="#">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!--This is my youtube channel link-->
+    <a href="https://youtu.be/otceIEzFlEg" id="yt" target="_blank"
+      ><i style="margin-right: 5px" class="fab fa-youtube"></i>Tutorial</a
+    >
+  </body>
+</html>
