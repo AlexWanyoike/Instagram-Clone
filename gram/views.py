@@ -1,32 +1,31 @@
-from django.shortcuts import render
-from django.http  import HttpResponse
+from django.shortcuts import render,redirect
 import datetime as dt
-from django.http  import HttpResponse,Http404
+from django.http  import HttpResponse ,Http404
 
 # Create your views here.
 
 def base(request):
-    return HttpResponse('Welcome to the Moringa Tribune')
+    return render(request , 'base.html')
 
 def homepage(request):
-    return HttpResponse('Welcome te')
+    return render(request ,'home.html')
 
 def user_profile(request):
-    return HttpResponse('Welcome to ')
+    return render(request ,'profile.html' )
 
 def viewphoto(request):
-    return HttpResponse('Wel Tribune')
+    return render(request ,'viewphoto.html')
 
 def sign_up(request):
-    return HttpResponse('Welcoibune')
+    return render(request ,'signup.html')
 
 def login_user(request):
-    return HttpResponse('WelcoTribune')
+    return render(request ,'login.html')
 
 def create_post(request):
-    return HttpResponse('Welcoibune')
+    return render(request ,'create_post.html')
 
 def comments(request):
-    return HttpResponse('Welcoibune')
+    return render(request ,'comments.html')
 
 
