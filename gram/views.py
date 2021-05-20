@@ -7,7 +7,7 @@ from django.http  import HttpResponse ,Http404
 def base(request):
     return render(request , 'base.html')
 
-def homepage(request):
+def home(request):
     return render(request ,'home.html')
 
 def user_profile(request):
@@ -27,5 +27,8 @@ def create_post(request):
 
 def comments(request):
     return render(request ,'comments.html')
+
+def ignore_nav(request):
+    return render(request ,'instagram-nav.html')
 
 
