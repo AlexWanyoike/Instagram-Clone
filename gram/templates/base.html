@@ -5,18 +5,37 @@
     <head>
       <meta charset="utf-8" />
 
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous"
+      />
+      <script
+        src="https://kit.fontawesome.com/d3d6f2df1f.js"
+        crossorigin="anonymous"
+      ></script>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      />
+
       {% if title %}
       <title>Moringa Tribune - {{title}}</title>
       {% else %}
       <title>Moringa Tribune</title>
       {% endif %} {% block styles %} {% bootstrap_css %}
       <link rel="stylesheet" href="{% static 'css/basegram.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/instagram-nav.css' %}" />
       {% endblock %}
     </head>
     <body>
-      {% include "navbar.html" %} {% block content %}
+      {% include "navbar.html" %} {% include "instagram-nav.html" %}
       <h1 class="text-center">coews everywhre</h1>
-      {%endblock%} {% block scripts %}
+
+      <h3>Hunger</h3>
+      {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       {% bootstrap_javascript %} {% endblock %}
     </body>

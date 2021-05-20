@@ -1,38 +1,20 @@
 {% load bootstrap3 %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    {% block styles %} {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    {% endblock %}
-    <style></style>
-    <title></title>
-  </head>
-  <body>
-    <nav>
-      <div class="menu-icon">
-        <span class="fas fa-bars"></span>
-      </div>
-      <div class="logo">Gang Gang</div>
-      <div class="nav-items">
-        <li><a href="/">Base</a>Base</li>
-        <li><a href="/home/"></a>Home</li>
-        <li><a href="/profile/">User_profile</a></li>
-        <li><a href="/viewphoto/">viewphoto</a></li>
-        <li><a href="/sign_up/">Sign UP</a></li>
-        <li><a href="/login_user/">Login_user</a></li>
-        <li><a href="/create_post">Create_post</a></li>
-        <li><a href="/comments/">Comments</a></li>
-        <li><a href="/admin">Admin</a></li>
-        <li><a href="/nav-gram">Nav-gram</a></li>
-      </div>
-    </nav>
-  </body>
-</html>
+
+<nav>
+  <div class="menu-icon">
+    <span class="fas fa-bars"></span>
+  </div>
+  <div class="logo">Gang Gang</div>
+  <div class="nav-items">
+    <li><a href="/">Base</a>Base</li>
+    <li><a href="/home/"></a>Home</li>
+    <li><a href="/profile/">User_profile</a></li>
+    <li><a href="/viewphoto/">viewphoto</a></li>
+    <li><a href="/sign_up/">Sign UP</a></li>
+    <li><a href="/login_user/">Login_user</a></li>
+    <li><a href="/create_post">Create_post</a></li>
+    <li><a href="/comments/">Comments</a></li>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/nav-gram">Nav-gram</a></li>
+  </div>
+</nav>
