@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block styles %} {% bootstrap_css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open*Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
     {% endblock %}
 
@@ -15,16 +17,13 @@
     <header>
       <div class="container">
         <div class="profile">
-          <div class="profile-page">
-            <img src="{% static '/images/Akan.png' %}" alt="User Image" />
+          <div class="profile-image">
+            <img src="{% static 'images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="User" />
           </div>
           <div class="profile-user-settings">
-            <h1 class="profile-user-name">Mellanex</h1>
+            <h1 class="profile-user-name">User Name</h1>
             <button class="btn profile-edit-btn">Edit Profile</button>
-            <button
-              class="btn profile-settings-btn"
-              aria-label="Profile Settings"
-            >
+            <button class="btn profile-settings-btn" aria-label="Profile Settings">
               <i class="fas fa-cog" aria-hidden></i>
             </button>
           </div>
@@ -40,7 +39,7 @@
 
 
           <div class="profile-bio">
-            <p><span class="profile-real-name">Mellanex</span>Hello Whats Up</p>
+            <p><span class="profile-real-name">Name</span> <br>  Hello Whats Up</p>
           </div>
 <!-- Profile Section --> 
         </div>
