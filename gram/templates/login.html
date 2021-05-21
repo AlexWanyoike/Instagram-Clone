@@ -1,20 +1,29 @@
 {% load bootstrap3 %} {% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instagram</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/d3d6f2df1f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    {% block styles %} {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" href="{% static 'css/login-details.css' %}" />
-    <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="icon" href="{% static 'images/FITNESS API (1).png' %}" />
+    {% endblock %}
+    
   </head>
   <body>
     <main>
       <div class="log-in-container">
         <div class="log-in">
           <!-- Logo -->
-          <img src="assets/images/instagram-logo.png" class="logo" />
+          <img src="" class="logo" />
           <!-- Log in form -->
           <div class="log-in-form">
             <input type="text" placeholder="Phone number, username or email" />
