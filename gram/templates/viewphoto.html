@@ -1,1 +1,37 @@
-<h6>cow</h6>
+{% load bootstrap3 %} {% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/d3d6f2df1f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/621136387c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    {% block styles %} {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/viewphoto.css' %}" />
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <div class="imgBx">
+            <img src="{% static '/images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>Nike Air</h2>
+                <p>Into the BAdlands</p>
+                <h2>Button</h2>
+                <button>Buy Goods</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+body{
+    margin:0;
+    padding:0;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+.container {
+    width: 900px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background:#fff;
+    margin:20px;
+}
+
+.container .img-box{
+    width:50%;
+    height:100%;
+    background:#ccc;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+.container .img-box img{
+    width:900px;
+    transform:rotate(100deg);
+}
+
+.container .text-box{
+    width:50%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+.container .text-box h1{
+    font-size:3em;
+    color:#444;
+    line-height: 1.5em;
+}
+.container .text-box h1 span{
+    font-size:8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color:#666;
+    font-weight: 100;
+}
+.container .text-box p{
+    font-size: 1em;
+    line-height: 1.5em;
+    color:#555;
+}
+.container .text-box h2{
+    font-size: 3em;
+    font-weight: 600;
+    color:#962b47;
+    float: left;
+}
+.container .text-box button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:#65017b;
+    padding:15px 20px;
+    text-transform: uppercase;
+    font-size:1.5em;
+    font-weight: 300;
+    float: right;
+    border-radius:30px;
+    color:#fff;
+    margin: 35px;
+}
+
+@media(max-width:1080px){
+    .container{
+        height:auto;
+    }
+    .container .img-box{
+        width: 100%;
+    }
+    .container .img-box img{
+        width: 100%;
+        transform:rotate(0deg);
+        padding: 40px;
+        box-sizing: border-box;
+    }
+    .container .text-box{
+        width:100%;
+    }
+    .container .text-box h1{
+        font-size:2em;
+        line-height: 0.8rem;
+    }
+    .container .text-box h2{
+        font-size:2em;
+        font-weight: 300;
+    }
+    .container .text-box button{
+        padding: 10px 15px;
+        font-size: 1em;
+        margin-top: 30px;
+    }
+
+
+}
