@@ -15,8 +15,12 @@
       src="https://kit.fontawesome.com/d3d6f2df1f.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="{% static 'css/instagram-nav.css' %}" />
+    {% block styles %} {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static '/css/instagram-nav.css' %}" />
+    {% endblock %}
+    
     <title>Document</title>
+
   </head>
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -89,5 +93,7 @@
             </div>
         </nav>
     </div>
+
+    {% include "instagram-nav.html" %}
   </body>
 </html>
