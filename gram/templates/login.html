@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
     <script src="https://kit.fontawesome.com/d3d6f2df1f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
 
     {% block styles %} {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" href="{% static 'css/login-details.css' %}" />
-    <link rel="icon" href="{% static 'images/FITNESS API (1).png' %}" />
+    <link rel="icon" href="" />
     {% endblock %}
     
   </head>
@@ -23,7 +24,7 @@
       <div class="log-in-container">
         <div class="log-in">
           <!-- Logo -->
-          <img src="" class="logo" />
+          <img src="https://i.imgur.com/zqpwkLQ.png" class="logo" />
           <!-- Log in form -->
           <div class="log-in-form">
             <input type="text" placeholder="Phone number, username or email" />
@@ -35,7 +36,7 @@
           <!-- Log in with Facebook -->
           <div class="fb-login">
             <a href="#">
-              <img src="assets/images/facebook-icon.png" />
+              <img src="{% static '/images/pexels-pixabay-267399.jpg' %}" />
               <span>Log in with Facebook</span>
             </a>
           </div>
@@ -47,35 +48,30 @@
           <span>Don't have an account?</span><a href="#">Sign up</a>
         </div>
         <!-- Download app -->
-        <div class="get-the-app">
-          <span>Get the app</span>
-          <div class="app-images">
-            <a href="#"><img src="assets/images/applestore.png" /></a>
-            <a href="#"><img src="assets/images/googlestore.png" /></a>
-          </div>
-        </div>
+        
       </div>
       <!-- Phones -->
-      <div class="phones-container">
-        <img src="assets/images/phones.png" />
-      </div>
+      
     </main>
-    <footer>
-      <ul class="footer-links">
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">HELP</a></li>
-        <li><a href="#">PRESS</a></li>
-        <li><a href="#">API</a></li>
-        <li><a href="#">JOBS</a></li>
-        <li><a href="#">PRIVACY</a></li>
-        <li><a href="#">TERMS</a></li>
-        <li><a href="#">LOCATIONS</a></li>
-        <li><a href="#">TOP</a></li>
-        <li><a href="#">ACCOUNTS</a></li>
-        <li><a href="#">HASHTAGS</a></li>
-        <li><a href="#">LANGUAGE</a></li>
-      </ul>
-      <span class="copyright">&copy; 2020 INSTAGRAM FROM FACEBOOK</span>
-    </footer>
+    <div class="container center mr-0">
+      <footer class=" text-center">
+        <ul class="footer-links">
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">HELP</a></li>
+          <li><a href="#">PRESS</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">JOBS</a></li>
+          <li><a href="#">PRIVACY</a></li>
+          <li><a href="#">TERMS</a></li>
+          <li><a href="#">LOCATIONS</a></li>
+          <li><a href="#">TOP</a></li>
+          <li><a href="#">ACCOUNTS</a></li>
+          <li><a href="#">HASHTAGS</a></li>
+          <li><a href="#">LANGUAGE</a></li>
+        </ul>
+        <span class="copyright">&copy; 2020 INSTAGRAM FROM FACEBOOK</span>
+      </footer>
+    </div>
+    
   </body>
 </html>
