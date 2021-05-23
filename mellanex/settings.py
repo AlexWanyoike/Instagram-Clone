@@ -13,7 +13,16 @@ import os
 
 from pathlib import Path
 
+import django_heroku
+import dj_database_url
+#from decouple import config,Csv
+
+
+#MODE=config("MODE", default="dev")
+#SECRET_KEY = config('SECRET_KEY')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -21,6 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = 'django-insecure-nj)9wx15ee!ra_#h6860%*@of0qox$mb*s-e7kal8g=9yhq^=h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -46,6 +56,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
+
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -68,6 +83,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
+                'django.template.context_processors.media',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -82,11 +101,29 @@ WSGI_APPLICATION = 'mellanex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mellanex',
-        'USER': 'alex',
-    'PASSWORD':'roverson3',
+        'NAME': config('mellanex'),
+        'USER': config('alex'),
+        'PASSWORD': config('roverson3'),
+        'HOST': config('DB_HOST'),
+        'PORT': '',
     }
-}
+       
+
+# if config('MODE')=="dev":
+       
+#    }
+# # production
+# else:
+#    DATABASES = {
+#        'default': dj_database_url.config(
+#            default=config('DATABASE_URL')
+#        )
+#    }
+
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Password validation
@@ -125,10 +162,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
