@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     path('',views.base,name = 'welcome'),
+    path('main/',views.main,name = 'welcome'),
     path('home/',views.home,name = 'welcome'),
     path('profile/',views.user_profile,name = 'welcome'),
     path('viewphoto/',views.viewphoto,name = 'welcome'),
@@ -13,6 +14,7 @@ urlpatterns=[
     path('create_post/',views.create_post,name = 'welcome'),
     path('comments/',views.comments,name = 'welcome'),
     path('nav-gram/',views.ignore_nav,name = 'welcome'),
+    path('edit_profile/',views.edit_profile,name = 'welcome'),
 ]
 
 if settings.DEBUG:

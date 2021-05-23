@@ -101,15 +101,23 @@ WSGI_APPLICATION = 'mellanex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('mellanex'),
-        'USER': config('alex'),
-        'PASSWORD': config('roverson3'),
-        'HOST': config('DB_HOST'),
-        'PORT': '',
+        'NAME': 'mellanex',
+        'USER': 'alex',
+    'PASSWORD':'roverson3',
     }
+}
        
 
 # if config('MODE')=="dev":
+#        DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.postgresql',
+#            'NAME': config('profile_pic'),
+#            'USER': config('alex'),
+#            'PASSWORD': config('roverson3'),
+#            'HOST': config('DB_HOST'),
+#            'PORT': '',
+#        }
        
 #    }
 # # production
@@ -147,7 +155,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Africa/Nairobi'

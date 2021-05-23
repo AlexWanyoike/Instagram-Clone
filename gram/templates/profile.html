@@ -14,37 +14,45 @@
     <title>Document</title>
   </head>
   <body>
+   
     <header>
-      <div class="container">
-        <div class="profile">
-          <div class="profile-image">
-            <img src="{% static 'images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="User" />
-          </div>
-          <div class="profile-user-settings">
-            <h1 class="profile-user-name">User Name</h1>
-            <button class="btn profile-edit-btn">Edit Profile</button>
-            <button class="btn profile-settings-btn" aria-label="Profile Settings">
-              <i class="fas fa-cog" aria-hidden></i>
-            </button>
-          </div>
-
-
-          <div class="profile-stats">
-            <ul>
-              <li><span class="profile-stat-count"></span>Posts</li>
-              <li><span class="profile-stat-count"></span>Followers</li>
-              <li><span class="profile-stat-count"></span>Following</li>
-            </ul>
-          </div>
-
-
-          <div class="profile-bio">
-            <p><span class="profile-real-name">Name</span> <br>  Hello Whats Up</p>
-          </div>
-<!-- Profile Section --> 
-        </div>
+      
+    <div class="container mb-5">
+      <div class="profile-user-settings">
+        <a href="/main" class="btn profile-edit-btn btn-btn-dark">Home Page</a>
       </div>
-<!-- End of Container-->      
+    </div>
+      
+    <div class="container">
+      <div class="profile">
+        <div class="profile-image">
+          <img src="{% static 'images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="User" />
+        </div>
+        <div class="profile-user-settings">
+          <h1 class="profile-user-name">User Name</h1>
+          <a href="/edit_profile/" class="btn profile-edit-btn">Edit Profile</a>
+          <button class="btn profile-settings-btn" aria-label="Profile Settings">
+            <i class="fas fa-cog" aria-hidden></i>
+          </button>
+        </div>
+
+
+        <div class="profile-stats">
+          <ul>
+            <li><span class="profile-stat-count"></span>Posts</li>
+            <li><span class="profile-stat-count"></span>Followers</li>
+            <li><span class="profile-stat-count"></span>Following</li>
+          </ul>
+        </div>
+
+
+        <div class="profile-bio">
+          <p><span class="profile-real-name">Name</span> <br>  Hello Whats Up</p>
+        </div>
+      <!-- Profile Section --> 
+      </div>
+    </div>
+        <!-- End of Container-->      
     </header>
     <main>
       <div class="container">

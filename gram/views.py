@@ -8,6 +8,9 @@ import datetime as dt
 
 # Create your views here.
 
+def main(request):
+    return render(request , 'main.html')
+
 def base(request):
     return render(request , 'base.html')
 
@@ -34,5 +37,8 @@ def comments(request):
 
 def ignore_nav(request):
     return render(request ,'instagram-nav.html')
+
+def edit_profile(request):
+    return render(request ,'edit_profile.html')
 
 
