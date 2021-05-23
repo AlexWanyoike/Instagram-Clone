@@ -41,4 +41,7 @@ def ignore_nav(request):
 def edit_profile(request):
     return render(request ,'edit_profile.html')
 
+def change_password(request):
+    return render(request ,'change_password.html')
+
 

@@ -15,6 +15,7 @@ urlpatterns=[
     path('comments/',views.comments,name = 'welcome'),
     path('nav-gram/',views.ignore_nav,name = 'welcome'),
     path('edit_profile/',views.edit_profile,name = 'welcome'),
+    path('change_password/',views.change_password,name = 'welcome'),
 ]
 
 if settings.DEBUG:
