@@ -24,7 +24,7 @@
 <body>
     <main>
         <div class="log-in-container">
-          <a href="/main" class="btn btn-dark my-3">Home Page</a>
+          <a href="{% url 'main' %}" class="btn btn-dark my-3">Home Page</a>
           <div class="log-in">
             <!-- Logo -->
             <img src="https://i.imgur.com/zqpwkLQ.png" class="logo" />
@@ -42,7 +42,7 @@
           </div>
           <!-- Sign up -->
           <div class="sign-up">
-            <span>Already Have an Account</span><a href="/login_user">Login User</a>
+            <span>Already Have an Account</span><a href="{% url 'login_user' %}">Login User</a>
           </div>
           <!-- Download app -->
           

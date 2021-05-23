@@ -5,17 +5,17 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     path('',views.base,name = 'welcome'),
-    path('main/',views.main,name = 'welcome'),
-    path('home/',views.home,name = 'welcome'),
-    path('profile/',views.user_profile,name = 'welcome'),
-    path('viewphoto/',views.viewphoto,name = 'welcome'),
-    path('sign_up/',views.sign_up,name = 'welcome'),
-    path('login_user/',views.login_user,name = 'welcome'),
+    path('main/',views.main,name = 'main'),
+    path('home/',views.home,name = 'home'),
+    path('profile/',views.user_profile,name = 'profile'),
+    path('viewphoto/',views.viewphoto,name = 'viewphoto'),
+    path('sign_up/',views.sign_up,name = 'sign_up'),
+    path('login_user/',views.login_user,name = 'login_user'),
     path('create_post/',views.create_post,name = 'welcome'),
-    path('comments/',views.comments,name = 'welcome'),
+    path('comments/',views.comments,name = 'comments'),
     path('nav-gram/',views.ignore_nav,name = 'welcome'),
-    path('edit_profile/',views.edit_profile,name = 'welcome'),
-    path('change_password/',views.change_password,name = 'welcome'),
+    path('edit_profile/',views.edit_profile,name = 'edit_profile'),
+    path('change_password/',views.change_password,name = 'change_password'),
 ]
 
 if settings.DEBUG:

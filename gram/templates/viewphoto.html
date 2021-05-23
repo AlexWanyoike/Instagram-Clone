@@ -14,36 +14,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     {% block styles %} {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static '/css/change_password.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/viewphoto.css' %}" />
     {% endblock %}
 
 </head>
-<body>
-    <div class="container mt-5">
-        <a href="/profile" class="btn btn-dark my-3">Profile</a>
-        <div class="wrapper">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="product-img">
-                        <img src="{% static '/images/Akan.png' %}" height="420" width="327">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-info">
-                        <div class="product-text">
-                          <h2>Username</h2>
-                          <p>Caption of Photo</p>
-                          
-                        </div>
-                        <a href="/comments" class="btn btn-dark my-3">Comments</a>
-                    </div>
-                </div>
-            </div>
+<body> 
+    <div>
+        <div class="center">
+            <a href="{% url 'profile' %}" class="btn btn-dark my-3">Back</a>
         </div>
+
+        <div class="card mb-8" style="max-width: 720px;">
+            <div class="row g-0">
+              <div class="col-md-8">
+                <div class="text-center">
+                    <img src="{% static '/images/Akan.png' %}" class="rounded" alt="...">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card-body">
+                  <h5 class="card-title">Username</h5>
+                  <p class="card-text">Caption of the Photo</p>
+                  <p class="card-text"><small class="text-muted">Time the  was taken</small></p>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'comments' %}" class="btn btn-dark my-3">Comments</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
         
         
     </div>
+   
     
-  
-  </body>
+    
+</body>
 </html>
