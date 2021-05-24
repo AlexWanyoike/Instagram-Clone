@@ -21,9 +21,9 @@ def main(request):
 
     create_post = request.GET.get('Profile')
     if create_post  == None:
-        photo = Image.objects.all()
+        image = Image.objects.all()
     else:
-        photo = Photo.objects.filter(create_post__name=create_post)
+        image = Photo.objects.filter(create_post__name=create_post)
     create_post = Image.objects.all()
 
     username = request.GET.get('Profile')
@@ -32,7 +32,7 @@ def main(request):
     # comment = request.GET.get('Comment')
     comments = Comment.objects.all()
     # photos = Image.objects.all()
-    context = {'photo': photo , 'username': username, 'comments': comments}
+    context = {'image': image , 'username': username, 'comments': comments}
 
     return render(request , 'main.html', context)
 
@@ -56,9 +56,12 @@ def comment(request, image_id):
     photo = Image.objects.get(pk=photo_id)
     content = request.GET.get("comment")
     user = request.user
+    comments = Comment.objects.all()
+    component = {'photo': photo , 'comments': comments}
     comment= Comment(photo = photo, content = content, user=user)
     comment.save_comment()
-    return redirect('main')
+    return render(request , 'comments.html', component)
+    # return redirect('main')
 
 # def comment(request):
 #     print("AJAX is working")

@@ -36,39 +36,44 @@
                     </div>
                     <div class="d-flex flex-row">
                         <ul class="list-inline m-0">
-                            <!-- {% if user.is_authenticated %}
+                            {% if user.is_authenticated %}
+                            <li class="list-inline-item ml-2">
+                                <a href="#" class="link-menu">
+                                    Create Post
+                                </a>
+                            </li>
+                            <li class="list-inline-item ml-2 align-middle">
+                                <a href="{% url 'profile' %}" class="link-menu">
+                                    <div
+                                        class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
+                                        <img src="{{ user.profile.profile_pic.url  }}" alt="..."
+                                            style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-inline-item ml-2 align-middle">
+                                <a href="/logout" class="link-menu">
+                                    Logout
+                                </a>
+                            </li>
                             {% else %}
-                            {% endif %} -->
-                                <li class="list-inline-item ml-2">
-                                    <a href="#" class="link-menu">
-                                        Create Post
-                                    </a>
-                                </li>
-                                <li class="list-inline-item ml-2 align-middle">
-                                    <a href="{% url 'profile' %}" class="link-menu">
-                                        <div
-                                            class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
-                                            <img src="assets/images/profiles/profile-6.jpg" alt="..."
-                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item ml-2 align-middle">
-                                    <a href="" class="link-menu">
-                                        Logout
-                                    </a>
-                                </li>
+                            <li class="list-inline-item ml-2">
+                                <a href="/accounts/register" class="link-menu">
+                                    Sign Up 
+                                </a>
+                            </li>
+                            <li class="list-inline-item ml-2">
+                                <a href="/accounts/login" class="link-menu">
+                                    Login 
+                                </a>
+                            </li>
+                            {% endif %}
+                                
+                                
+                                
                             
-                                <li class="list-inline-item ml-2">
-                                    <a href="/accounts/register" class="link-menu">
-                                        Sign Up 
-                                    </a>
-                                </li>
-                                <li class="list-inline-item ml-2">
-                                    <a href="/accounts/login" class="link-menu">
-                                        Login 
-                                    </a>
-                                </li>
+                                
+                               
                                 
 
 

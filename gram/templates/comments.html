@@ -20,41 +20,36 @@
 <body>
    
     <div class="container" >
+        
         <a href="{% url 'main' %}" class="btn btn-dark my-3">Home Page</a>
         
 
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button  class="btn btn-primary" type="button" id="button-addon2">Button</button>
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Add a Comment" aria-describedby="button-addon2">
+            <button  class="btn btn-primary" type="button" id="button-addon2" >Button</button>
         </div>
-        
-        <div class="list-group mb-2">
-            
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <div class="d-flex w-200 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
+        {%  for photo in photo%}
+            <div class="list-group mb-2">
+                {% for comment in comments %}
+                    {% if comment.image.id == image.id %}
+
+                    <div>
+                        <a href="#" class="likes"><em style="font-size: 1.2rem;">{{comment.user}}</em></a>
+                        <span class="post-link"><em style="font-size: 1.2rem;">{{photo.comment.content}}</em></span>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-200 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Some placasdfadsfasdfeholder content in a paragraph.jajsjkbsdafsdafsadjfbadsbjlfbsadfn adsbfasdhfhdas;fsad;fhasd;fh</p>
+                <small>And some small print.</small>
+                </a>
             </div>
-            <p class="mb-1">Some placasdfadsfasdfeholder content in a paragraph.jajsjkbsdafsdafsadjfbadsbjlfbsadfn adsbfasdhfhdas;fsad;fhasd;fh</p>
-            <small>And some small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-muted">And some muted small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-muted">And some muted small print.</small>
-            </a>
-        </div>
+        {% endfor %}
+
     </div>
        
         

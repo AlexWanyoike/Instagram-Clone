@@ -42,53 +42,44 @@
                         <!-- START OF STORIES -->
                         <div class="card">
                             <div class="card-body d-flex justify-content-start">
+                                {% for image in image %}
                                 <ul class="list-unstyled mb-0">
                                     <li class="list-inline-item">
                                         <button class="btn p-0 m-0">
                                             <div class="d-flex flex-column align-items-center">
                                                 <div
-                                                    class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger story-profile-photo">
-                                                    <img src="{% static '/images/pexels-pixabay-355952.jpg' %}" alt="..."
+                                                    class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger story-profile-photo text-capitalize">
+                                                    <img src="{{image.profile.profile_pic.url}}" alt="..."
                                                         style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                                 </div>
-                                                <small>samkolder</small>
+                                                <small class="text-capitalize">{{image.profile.user}}</small>
                                             </div>
                                         </button>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <button class="btn p-0 m-0">
-                                            <div class="d-flex flex-column align-items-center">
-                                                <div
-                                                    class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger story-profile-photo">
-                                                    <img src="assets/images/profiles/profile-2.jpg" alt="..."
-                                                        style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
-                                                </div>
-                                                <small>petermckinnon</small>
-                                            </div>
-                                        </button>
-                                    </li>
+                                    </li> 
                                 </ul>
+                                {% endfor %}
+                            
                             </div>
                         </div>
                         <!-- END OF STORIES -->
 
                         <!-- START OF POSTS -->
                         <div class="d-flex flex-column mt-4 mb-4">
-                            {% for photo in photo %}
+                            {% for image in image %}
                             <div class="card">
                                 <div class="card-header p-3">
                                     <div class="d-flex flex-row align-items-center">
                                         <div
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger post-profile-photo mr-3">
-                                            <img src="{{photo.profile.profile_pic.url}}" alt="..."
-                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
+                                            <img src="{{image.profile.profile_pic.url}}" alt="..."
+                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;" >
                                         </div>
-                                        <span class="font-weight-bold">{{photo.profile.user}}</span>
+                                        <span class="font-weight-bold text-capitalize">{{image.profile.user}}</span>
                                     </div>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="embed-responsive embed-responsive-1by1">
-                                        <img class="embed-responsive-item" src="{{photo.image.url}}" />
+                                        <img class="embed-responsive-item" src="{{image.image.url}}" height="100%" width="100%"/>
                                     </div>
 
                                     <div class="d-flex flex-row justify-content-between pl-3 pr-3 pt-3 pb-1">
@@ -142,34 +133,33 @@
                                     </div>
 
                                     <div class="pl-3 pr-3 pb-2">
-                                        <strong class="d-block">{{photo.profile.user}} {{photo.likes}}</strong>
-                                        <strong class="d-block">{{photo.name}}</strong>
-                                        <p class="d-block mb-1">{{photo.caption}}</p>
-                                        <p>
-                                            {% for comment in comments %}
-                                            {% if comment.image.id == image.id %}
 
-                                            <div>
-                                                <a href="#" class="likes"><em style="font-size: 1.2rem;">{{comment.user}}</em></a>
-                                                <span class="post-link"><em style="font-size: 1.2rem;">{{photo.comment.content}}</em></span>
-                                            </div>
-                                            {% endif %}
+                            
+                                        <strong class="text-capitalize" style="font-size : 1rem;" >{{image.profile.user}} </strong>
+                                        <p class="fst-normal">{{image.caption}} -- {{image.name}}</p>
+                                        <!-- <p>{{image.likes}}</p> -->
+                                        <p> 
+                                            <small class="text-muted font-weight-normal">Comments: </small>
+                                            {% for comment in comments %}
+                                                {% if comment.image.id == image.id %}
+
+                                                <div>
+                                                    <a href="#" class="fst-normal">{{comment.user}}</a>
+                                                    <span class="fw-light">{{comment.content}}</span>
+                                                </div>
+                                                {% endif %}
                                             {% endfor %}
                                         </p>
-                                        <button class="btn p-0">
-                                            <span class="text-muted"> {{user_comment.user}} and (The Number)</span>
-                                        </button>
+
+                                        
                                         
                                         <div>
-                                            <a href="{% url 'comments' %}" class="btn btn-dark my-3"> View Comments</a>
-                                        </div>
-                                        <div>
-                                            <small class="text-muted">4 HOURS AGO</small> 
+                                            <small class="text-muted">{{image.date_posted}}</small> 
                                         </div>
                                     </div>
 
                                     <div class="position-relative comment-box">
-                                        <form>
+                                        <form role="add_comment" action="" >
                                             <input class="w-100 border-0 p-3 input-post" placeholder="Add a comment...">
                                             <button class="btn btn-primary position-absolute btn-ig">Post</button>
                                         </form>
@@ -187,12 +177,12 @@
                         <div class="d-flex flex-row align-items-center">
                             <div
                                 class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border sidenav-profile-photo">
-                                <img src="assets/images/profiles/profile-6.jpg" alt="..."
+                                <img src="{{ user.profile.profile_pic.url  }}" alt="..."
                                     style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                             </div>
                             <div class="profile-info ml-3">
-                                <span class="profile-info-username">codingvenue</span>
-                                <span class="profile-info-name">Coding Venue</span>
+                                <span class="profile-info-username text-capitalize">{{user.profile.user.username}}</span>
+                                <span class="profile-info-name">{{user.profile.bio}}</span>
                             </div>
                         </div>
 
@@ -202,39 +192,20 @@
                                 <small>See All</small>
                             </div>
                             <div>
+                                {% for image in image %}
                                 <div class="d-flex flex-row justify-content-between align-items-center mt-3 mb-3">
                                     <div class="d-flex flex-row align-items-center">
                                         <div
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border sugest-profile-photo">
-                                            <img src="assets/images/profiles/profile-3.jpg" alt="..."
+                                            <img src="{{image.profile.profile_pic.url}}" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <strong class="ml-3 sugest-username">instagram</strong>
+                                        <strong class="ml-3 sugest-username text-capitalize">{{image.profile.user}}</strong>
                                     </div>
-                                    <button class="btn btn-primary btn-sm p-0 btn-ig ">Follow</button>
+                                    <button class="btn btn-primary btn-sm p-0 btn-ig text-capitalize">Follow</button>
                                 </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center mt-3 mb-3">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div
-                                            class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border sugest-profile-photo">
-                                            <img src="assets/images/profiles/profile-4.png" alt="..."
-                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
-                                        </div>
-                                        <strong class="ml-3 sugest-username">dccomics</strong>
-                                    </div>
-                                    <button class="btn btn-primary btn-sm p-0 btn-ig ">Follow</button>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center mt-3 mb-3">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div
-                                            class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border sugest-profile-photo">
-                                            <img src="assets/images/profiles/profile-5.jpg" alt="..."
-                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
-                                        </div>
-                                        <strong class="ml-3 sugest-username">thecw</strong>
-                                    </div>
-                                    <button class="btn btn-primary btn-sm p-0 btn-ig">Follow</button>
-                                </div>
+                                {% endfor %}
+                                
                             </div>
                         </div>
                     </div>
