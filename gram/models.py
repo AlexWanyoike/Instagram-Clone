@@ -82,6 +82,10 @@ class Follow(models.Model):
     def __str__(self):
         return self.pk 
 
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
+
 
 
 # # Create your models here.

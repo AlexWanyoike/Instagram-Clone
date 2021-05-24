@@ -16,6 +16,7 @@ urlpatterns=[
     path('nav-gram/',views.ignore_nav,name = 'welcome'),
     path('edit_profile/',views.edit_profile,name = 'edit_profile'),
     path('change_password/',views.change_password,name = 'change_password'),
+    #re_path('new/article$', views.new_article, name='new-article')
 ]
 
 if settings.DEBUG:

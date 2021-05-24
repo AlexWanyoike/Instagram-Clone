@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Image , Profile , Comment , Follow
-#from .forms import NewArticleForm, NewsLetterForm
+from .forms import NewArticleForm, NewsLetterForm
 #from .email import send_welcome_email
 #from django.contrib.auth.decorators import login_required
 import datetime as dt
