@@ -7,7 +7,9 @@ from django.urls import reverse
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 import datetime as dt
-
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -48,10 +50,10 @@ def viewphoto(request):
     return render(request ,'viewphoto.html')
 
 def sign_up(request):
-    return render(request ,'signup.html')
+    return render(request ,'registration/signup.html')
 
-def login_user(request):
-    return render(request ,'login.html')
+def login(request):
+    return render(request ,'registration/login.html')
 
 def create_post(request):
     return render(request ,'create_post.html')
@@ -69,3 +71,6 @@ def change_password(request):
     return render(request ,'change_password.html')
 
 
+class UserRegistration(generic.CreateView):
+    form_class = UserCreationForm
+    success = reverse_lazy('login')
