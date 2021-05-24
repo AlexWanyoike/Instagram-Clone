@@ -2,8 +2,7 @@
 
 ## Description
 
-This project aims in creating a functional instgram clone with almost the same features and funtionality. It has the ability to giv users the ability to view , like, comment, delete and follow other users.
-
+This project aims in creating a functional Instagram clone with almost the same features and functionality. It has the ability to give users the ability to view, like, comment, delete and follow other users.
 ## Features
 
 - User:
@@ -53,8 +52,8 @@ $ git clone https://github.com/AlexWanyoike/Instagram-Clone.git
 
 To run the tests for the class files:
 
-$ python3 manage.py tests
-$ python3 manage.py check
+- $ python3 manage.py tests
+- $ python3 manage.py check
 
 ## Languages Used:
 
@@ -79,6 +78,7 @@ alex.wanyoike12@gmail.com
 
 ## License and Copyright
 
-[LICENSE](https://github.com/AlexWanyoike/Djangoweekone/blob/3f85620559cc49728fe8b5bdcfb5c2045f60bf4f/LICENSE)
+[LICENSE](https://github.com/AlexWanyoike/Instagram-Clone/blob/005422b6a0fb8f2d4df04cb263a4be5301f38e86/LICENSE
+)
 
 (C) Copyright 2021 Alex Wanyoike

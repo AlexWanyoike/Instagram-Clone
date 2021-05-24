@@ -1,15 +1,39 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Image , Profile , Comment , Follow
-from .forms import NewArticleForm, NewsLetterForm
-#from .email import send_welcome_email
-#from django.contrib.auth.decorators import login_required
+#from .forms import NewArticleForm, NewsLetterForm
+from django import forms
+from django.urls import reverse
+from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
 import datetime as dt
+
+
 
 # Create your views here.
 
 def main(request):
-    return render(request , 'main.html')
+    
+
+    create_post = request.GET.get('Profile')
+    if create_post  == None:
+        photo = Image.objects.all()
+    else:
+        photo = Photo.objects.filter(create_post__name=create_post)
+    create_post = Image.objects.all()
+
+    username = request.GET.get('Profile')
+    username = Profile.objects.all()
+
+    comment = request.GET.get('Comment')
+    comment = Comment.objects.all()
+
+    context = {'photo': photo , 'username': username,  'comment': comment}
+
+    
+
+
+    return render(request , 'main.html', context)
 
 def base(request):
     return render(request , 'base.html')

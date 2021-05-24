@@ -74,21 +74,21 @@
 
                         <!-- START OF POSTS -->
                         <div class="d-flex flex-column mt-4 mb-4">
-
+                            {% for photo in photo %}
                             <div class="card">
                                 <div class="card-header p-3">
                                     <div class="d-flex flex-row align-items-center">
                                         <div
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger post-profile-photo mr-3">
-                                            <img src="assets/images/profiles/profile-1.jpg" alt="..."
+                                            <img src="{{photo.profile.profile_pic.url}}" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <span class="font-weight-bold">Username</span>
+                                        <span class="font-weight-bold">{{photo.profile.user}}</span>
                                     </div>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="embed-responsive embed-responsive-1by1">
-                                        <img class="embed-responsive-item" src="{% static '/images/pexels-pixabay-355952.jpg' %}" />
+                                        <img class="embed-responsive-item" src="{{photo.image.url}}" />
                                     </div>
 
                                     <div class="d-flex flex-row justify-content-between pl-3 pr-3 pt-3 pb-1">
@@ -142,12 +142,23 @@
                                     </div>
 
                                     <div class="pl-3 pr-3 pb-2">
-                                        <strong class="d-block">Number Of Likes</strong>
-                                        <strong class="d-block">Username</strong>
-                                        <p class="d-block mb-1">Description</p>
+                                        <strong class="d-block">{{photo.likes}}{{photo.profile.user}}</strong>
+                                        <strong class="d-block">{{photo.name}}</strong>
+                                        <p class="d-block mb-1">{{photo.caption}}</p>
+                                        <p>
+                                            {% for comment in comments %}
+                                            
+                                            <div>
+                                                <a href="#" class="likes"><em style="font-size: 1.2rem;">{{comment.user}}</em></a>
+                                                <span class="post-link"><em style="font-size: 1.2rem;">{{comment.content}}</em></span>
+                                            </div>
+                                            
+                                            {% endfor %}
+                                        </p>
                                         <button class="btn p-0">
-                                            <span class="text-muted">View Comments and (The Number)</span>
+                                            <span class="text-muted"> {{user_comment.user}} and (The Number)</span>
                                         </button>
+                                        
                                         <div>
                                             <a href="{% url 'comments' %}" class="btn btn-dark my-3"> View Comments</a>
                                         </div>
@@ -166,7 +177,8 @@
 
                                 </div>
                             </div>
-
+                            {% endfor %}
+                            
                         </div>
                         <!-- END OF POSTS -->
                     </div>

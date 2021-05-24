@@ -5,11 +5,11 @@ from tinymce.models import HTMLField
 from django.db.models.base import Model
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='media/')
-    bio = models.TextField(blank=True)
-    followers = models.IntegerField(default=0)
-    following = models.IntegerField(default=0)  
+    user = models.OneToOneField(User, on_delete=models.CASCADE , default='')
+    profile_pic = models.ImageField(upload_to='media/', default='')
+    bio = models.TextField(blank=True, default='')
+    followers = models.IntegerField(default=0, )
+    following = models.IntegerField(default=0, )  
 
     def __str__(self) -> str:
         return self.user.username
@@ -20,12 +20,12 @@ class Profile(models.Model):
 
 
 class Image(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, default='')
     image = models.ImageField(upload_to='media/')
-    caption = models.TextField(blank=True)
+    caption = models.TextField(max_length=400, default='')
     date_posted = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE )
-    likes = models.ManyToManyField(Profile, related_name="posts")
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE , default='')
+    likes = models.ManyToManyField(Profile, related_name="posts", default='')
 
     def __str__(self) -> str:
         return self.name
@@ -55,8 +55,8 @@ class Image(models.Model):
 class Comment(models.Model):
     content = models.TextField()
     post_date = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="comments", default='')
 
     def __str__(self):
         return self.content
@@ -76,14 +76,14 @@ class Comment(models.Model):
 
 class Follow(models.Model): 
     posted = models.DateTimeField(auto_now_add=True)
-    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_followed')
-    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_following')
+    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_followed', default='')
+    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_following', default='')
 
     def __str__(self):
         return self.pk 
 
 class NewsLetterRecipients(models.Model):
-    name = models.CharField(max_length = 30)
+    name = models.CharField(max_length = 30, default='')
     email = models.EmailField()
 
 
