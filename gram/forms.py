@@ -1,6 +1,6 @@
 from django import forms
 from .models import Profile , Comment , Image , Follow , NewsLetterRecipients
-#from django from forms
+from django import forms
 
 class NewsLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)

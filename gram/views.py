@@ -1,8 +1,10 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Image , Profile , Comment , Follow
-#from .forms import CreatePostForm, NewsLetterForm
 from django import forms
+#from django
+#from .forms import CreatePostForm, NewsLetterForm
+
 from django.urls import reverse
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
@@ -27,15 +29,15 @@ def main(request):
     username = request.GET.get('Profile')
     username = Profile.objects.all()
 
-    comment = request.GET.get('Comment')
-    comment = Comment.objects.all()
-
-    context = {'photo': photo , 'username': username}
+    # comment = request.GET.get('Comment')
+    comments = Comment.objects.all()
+    # photos = Image.objects.all()
+    context = {'photo': photo , 'username': username, 'comments': comments}
 
     return render(request , 'main.html', context)
 
 
-@login_required(login_url='/registration/login/')
+@login_required(login_url='/accounts/login/')
 def new_post(request):
     current_user = request.user
     if request.method == 'POST':
@@ -50,6 +52,13 @@ def new_post(request):
         form = CreatePostForm()
     return render(request, 'main.html', {"form": form})
 
+def comment(request, image_id):
+    photo = Image.objects.get(pk=photo_id)
+    content = request.GET.get("comment")
+    user = request.user
+    comment= Comment(photo = photo, content = content, user=user)
+    comment.save_comment()
+    return redirect('main')
 
 # def comment(request):
 #     print("AJAX is working")
@@ -82,11 +91,11 @@ def user_profile(request):
 def viewphoto(request):
     return render(request ,'viewphoto.html')
 
-def sign_up(request):
-    return render(request ,'registration/signup.html')
+# def sign_up(request):
+#     return render(request ,'signup.html')
 
-def login(request):
-    return render(request ,'registration/login.html')
+# def login(request):
+#     return render(request ,'login.html')
 
 def create_post(request):
     return render(request ,'create_post.html')
@@ -105,6 +114,6 @@ def change_password(request):
     return render(request ,'change_password.html')
 
 
-class UserRegistration(generic.CreateView):
-    form_class = UserCreationForm
-    success = reverse_lazy('login')
+# class UserRegistration(generic.CreateView):
+#     form_class = UserCreationForm
+#     success = reverse_lazy('login')

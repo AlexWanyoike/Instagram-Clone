@@ -142,17 +142,18 @@
                                     </div>
 
                                     <div class="pl-3 pr-3 pb-2">
-                                        <strong class="d-block">{{photo.likes}}{{photo.profile.user}}</strong>
+                                        <strong class="d-block">{{photo.profile.user}} {{photo.likes}}</strong>
                                         <strong class="d-block">{{photo.name}}</strong>
                                         <p class="d-block mb-1">{{photo.caption}}</p>
                                         <p>
                                             {% for comment in comments %}
-                                            
+                                            {% if comment.image.id == image.id %}
+
                                             <div>
                                                 <a href="#" class="likes"><em style="font-size: 1.2rem;">{{comment.user}}</em></a>
-                                                <span class="post-link"><em style="font-size: 1.2rem;">{{comment.content}}</em></span>
+                                                <span class="post-link"><em style="font-size: 1.2rem;">{{photo.comment.content}}</em></span>
                                             </div>
-                                            
+                                            {% endif %}
                                             {% endfor %}
                                         </p>
                                         <button class="btn p-0">

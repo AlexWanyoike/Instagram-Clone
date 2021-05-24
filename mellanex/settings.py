@@ -201,9 +201,11 @@ django_heroku.settings(locals())
 # LOGIN_REDIRECT_URL='main'
 # LOGOUT_REDIRECT_URL = 'main'
 
-LOGIN_URL = "/accounts/login/"
-LOGOUT_REDIRECT_URL = "/accounts/login/"
-LOGIN_REDIRECT_URL = "/main"
+# LOGIN_URL = "/accounts/login/"
+# LOGOUT_REDIRECT_URL = "/accounts/signup/"
+# LOGIN_REDIRECT_URL = "/main"
+
+REGISTRATION_OPEN= True
 
 
 # Default primary key field type
