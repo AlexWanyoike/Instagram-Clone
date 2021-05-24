@@ -198,8 +198,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
-LOGIN_REDIRECT_URL='main'
-LOGOUT_REDIRECT_URL = 'main'
+# LOGIN_REDIRECT_URL='main'
+# LOGOUT_REDIRECT_URL = 'main'
+
+LOGIN_URL = "/accounts/login/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = "/main"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

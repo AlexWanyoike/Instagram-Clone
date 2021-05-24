@@ -36,7 +36,9 @@
                     </div>
                     <div class="d-flex flex-row">
                         <ul class="list-inline m-0">
-                            {% if user.is_authenticated %}
+                            <!-- {% if user.is_authenticated %}
+                            {% else %}
+                            {% endif %} -->
                                 <li class="list-inline-item ml-2">
                                     <a href="#" class="link-menu">
                                         Create Post
@@ -56,7 +58,7 @@
                                         Logout
                                     </a>
                                 </li>
-                            {% else %}
+                            
                                 <li class="list-inline-item ml-2">
                                     <a href="{% url 'sign_up' %}" class="link-menu">
                                         Sign Up 
@@ -67,7 +69,7 @@
                                         Login 
                                     </a>
                                 </li>
-                                {% endif %}
+                                
 
 
                             

@@ -1,0 +1,27 @@
+def comment(request):
+    print("AJAX is working")
+
+    comment = request.GET.get('comment')
+    image = request.GET.get('image')
+    username = request.user
+
+    comment = Comment(comment=comment,image=image,username=username)
+    comment.save()
+
+    recent_comment= f'{Comment.objects.all().last().comment}'
+    recent_comment_user = f'{Comment.objects.all().last().username}'
+    data= {
+        'recent_comment': recent_comment,
+        'recent_comment_user':recent_comment_user
+    }
+
+     return JsonResponse(data)
+
+<div id="card{{image.id}}" class="mt-2">
+                          {%for comment in comments%}
+                              {%if comment.comment == image.id%}
+                              <p>
+                                  <strong>{{comment.username.username}}</strong> {{comment.comment}}
+                              </p>
+                              {%endif%}
+                          {%endfor%

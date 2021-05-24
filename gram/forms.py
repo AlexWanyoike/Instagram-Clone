@@ -9,7 +9,7 @@ class NewsLetterForm(forms.Form):
 # class CreatePostForm(forms.ModelForm):
 #     class Meta:
 #         model = Post
-#         fields = ['editor', 'pub_date']
+#         exclude = ['editor', 'pub_date']
 #         widgets = {
 #             'tags': forms.CheckboxSelectMultiple(),
 #         }
