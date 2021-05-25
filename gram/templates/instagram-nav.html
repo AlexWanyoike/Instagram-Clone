@@ -38,7 +38,7 @@
                         <ul class="list-inline m-0">
                             {% if user.is_authenticated %}
                             <li class="list-inline-item ml-2">
-                                <a href="#" class="link-menu">
+                                <a href="{% url 'create_post' %}" class="link-menu">
                                     Create Post
                                 </a>
                             </li>
