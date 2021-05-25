@@ -437,9 +437,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
   </header>
   
   <main>
-    {% for image in images %}
-    <img src="{{image.image.url}}"  alt="Gallery-1" class="gallery-image">
-    {% endfor %}
+    
+    <img src="{{ image.image.url }}"  alt="Gallery-1" class="gallery-image">
+    
     <div class="container">
         <div class="gallery">
           {% if images %}

@@ -35,6 +35,6 @@ class ImageTestClass(TestCase):
         self.assertEqual(self.home.caption, 'Pasta')
 
     def test_get_profile_images(self):
-        self.book.save_image()
+        self.home.save_image()
         images = Image.get_profile_images(self.profile)
-        self.assertEqual(len(images),2)
+        self.assertEqual(len(images),1)

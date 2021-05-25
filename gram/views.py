@@ -74,7 +74,9 @@ def create_post(request):
 def ignore_nav(request):
     return render(request ,'instagram-nav.html')
 
-@login_required
+
+
+
 def edit_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -83,7 +85,7 @@ def edit_profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('profile')
+            return redirect('edit_profile')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
@@ -93,7 +95,7 @@ def edit_profile(request):
         'u_form': u_form,
         'p_form': p_form
     }
-    return render(request ,'profile.html' , context)
+    return render(request ,'edit_profile.html' , context)
 
 def change_password(request):
     return render(request ,'change_password.html')

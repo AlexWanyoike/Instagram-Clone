@@ -1,4 +1,4 @@
-% load bootstrap3 %} {% load static %}
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,9 +9,12 @@
     <title>Edit Profile {{title}}</title>
     {% else %}
     <title>Edit Profile</title>
-    {% endif %} {% block styles %} {% bootstrap_css %}
-    <link rel="stylesheet" href="" />
-    {% endblock %}
+    {% endif %} 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{%static  '/css/create_post.css' %}" />
+    
+
   </head>
   <body>
     <div class="m-5">
@@ -27,30 +30,34 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
+                <div class="form-group m-3 text-center">
+                  EDIT PROFILE!!! 
+                </div>
+
                 <div class="form-group m-3">
                   <label>Name</label>
                   <input
                     required
                     name="Name"
                     type="text"
-                    placeholder="Name of Photo"
+                    placeholder="Change Username"
                     class="form-control"
                   />
                 </div>
 
                 <div class="form-group m-3">
-                  <label>Caption</label>
+                  <label>Change Bio</label>
                   <input
                     required
                     name="new_caption"
                     type="text"
-                    placeholder="Caption This Post"
+                    placeholder="Tell us About Yourself"
                     class="form-control"
                   />
                 </div>
 
                 <div class="form-group m-3">
-                  <label>Upload image</label>
+                  <label>Change Profile Pic</label>
                   <input
                     required
                     name="photos"
@@ -75,9 +82,7 @@
       </div>
     </div>
 
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %} {% endblock %}
+    
   </body>
 </html>
 
