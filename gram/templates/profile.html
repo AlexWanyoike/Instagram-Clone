@@ -415,9 +415,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
         <div class="profile-stats">
   
           <ul>
-            <li><span class="profile-stat-count">164</span> posts</li>
-            <li><span class="profile-stat-count">188</span> followers</li>
-            <li><span class="profile-stat-count">206</span> following</li>
+            <li><span class="profile-stat-count"></span> posts</li>
+            <li><span class="profile-stat-count"></span> followers</li>
+            <li><span class="profile-stat-count"></span> following</li>
           </ul>
   
         </div>
@@ -438,19 +438,19 @@ Remove or comment-out the code block below to see how the browser will fall-back
   
   <main>
     
-    <img src="{{ image.image.url }}"  alt="Gallery-1" class="gallery-image">
+    
     
     <div class="container">
         <div class="gallery">
           {% if images %}
-            {% for image in image%}
+            {% for image in images %}
             <div class="gallery-item" tabindex="0">
               <img src="{{image.image.url}}"  alt="Gallery-1" class="gallery-image">
               <a href="{% url 'viewphoto' %}" class="btn profile-edit-btn">View Photo</a>
               <div class="gallery-item-info">
                 <ul>
-                  <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden>56</i></li>
-                  <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden>2</i></li>
+                  <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden></i></li>
+                  <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden></i></li>
                 </ul>
               </div>
             </div>

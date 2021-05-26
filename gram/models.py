@@ -9,10 +9,15 @@ class Profile(models.Model):
     name = models.CharField(max_length=30, blank=True)
     profile_pic = models.ImageField(upload_to='media/', default='')
     bio = models.TextField(blank=True, default='')
-     
+    followers = models.IntegerField(default=0 )
+    following = models.IntegerField(default=0 )  
 
     def __str__(self):
         return self.user.username
+
+    def get_user_by_profile(cls, username):
+        profile = Profile.cls.objects.filter(user__username__contains = username) 
+        return profile
 
     @classmethod
     def search_user(cls,username):
@@ -26,7 +31,7 @@ class Image(models.Model):
     caption = models.TextField(max_length=400, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE , null=True)
-    likes = models.ManyToManyField(Profile, related_name="posts", default=0)
+    likes = models.ManyToManyField(Profile, related_name="posts")
 
     def __str__(self):
         return self.name
@@ -43,6 +48,10 @@ class Image(models.Model):
 
     def like_count(self):
         return self.likes.count()
+
+    def get_image_by_user(cls, username):
+        images = Image.cls.objects.filter(user__username__contains = username) 
+        return images
 
     @classmethod
     def get_profile_images(cls,profile):

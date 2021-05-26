@@ -19,9 +19,6 @@ def main(request):
     image = Image.objects.all()
     comments = Comment.objects.all()
 
-    
-
-
     context = {'image': image ,'comments': comments}
 
     return render(request , 'main.html', context)
@@ -41,7 +38,12 @@ def comment(request, image_id):
     # return redirect('main')
 
 def user_profile(request):
-    return render(request ,'profile.html' )
+    images = Image.get_image_by_user(username)
+    profile = Profile.get_user_by_profile(username)
+
+    context = {'images': images ,'profile': profile}
+
+    return render(request ,'profile.html' ,  )
 
 def viewphoto(request):
     return render(request ,'viewphoto.html')
@@ -99,35 +101,6 @@ def email(request):
     send_welcome_email(name, email)
     return redirect(profile)
 
-# class UserRegistration(generic.CreateView):
-#     form_class = UserCreationForm
-#     success = reverse_lazy('login')
-
-
-# def comment(request):
-#     print("AJAX is working")
-
-#     comment = request.GET.get('Comment')
-#     image = request.GET.get('Image')
-#     username = request.user
-
-#     comment = Comment(comment=comment,image=image,username=username)
-#     comment.save()
-
-#     recent_comment= f'{Comment.objects.all().last().comment}'
-#     recent_comment_user = f'{Comment.objects.all().last().username}'
-#     data= {
-#         'recent_comment': recent_comment,
-#         'recent_comment_user':recent_comment_user
-#     }
-
-#     return JsonResponse(data)
-
-# def sign_up(request):
-#     return render(request ,'signup.html')
-
-# def login(request):
-#     return render(request ,'login.html')
 
 
 def comments(request):

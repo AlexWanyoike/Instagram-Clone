@@ -11,15 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 
-
-#from decouple import  Config
 from pathlib import Path
-#from csv import Csv
+
 
 #from config import Config
 import django_heroku
 import dj_database_url
-
+#from decouple import config 
 
 
 #MODE=config("MODE", default="dev")
@@ -38,6 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nj)9wx15ee!ra_#h6860%*@of0qox$mb*s-e7kal8g=9yhq^=h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -117,7 +116,7 @@ DATABASES = {
 #        DATABASES = {
 #        'default': {
 #            'ENGINE': 'django.db.backends.postgresql',
-#            'NAME': config('profile_pic'),
+#            'NAME': config('mellanex'),
 #            'USER': config('alex'),
 #            'PASSWORD': config('roverson3'),
 #            'HOST': config('DB_HOST'),

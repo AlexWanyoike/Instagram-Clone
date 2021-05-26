@@ -49,10 +49,9 @@
                                             <div class="d-flex flex-column align-items-center">
                                                 <div
                                                     class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger story-profile-photo text-capitalize">
-                                                    <img src="{{image.profile.profile_pic.url}}" alt="..."
-                                                        style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
+                                                    <img src="{{image.profile.profile_pic.url}}" alt="..." style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                                 </div>
-                                                <small class="text-capitalize">{{image.profile.name}}</small>
+                                                <small class="text-capitalize">{{image.user}}</small>
                                             </div>
                                         </button>
                                     </li> 
@@ -69,12 +68,17 @@
                             <div class="card">
                                 <div class="card-header p-3">
                                     <div class="d-flex flex-row align-items-center">
+                                        {% if image.profile.profile_pic %}
                                         <div
+                                            
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger post-profile-photo mr-3">
-                                            <img src="{{image.profile.profile_pic.url}}" alt="..."
+                                            <img src="{{ image.profile.profile_pic.url }}" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;" >
+                                                
+                                            
                                         </div>
-                                        <span class="font-weight-bold text-capitalize">{{image.profile.user}}</span>
+                                        {% endif %}
+                                        <span class="font-weight-bold text-capitalize">{{image.user}}</span>
                                     </div>
                                 </div>
                                 <div class="card-body p-0">
@@ -135,7 +139,7 @@
                                     <div class="pl-3 pr-3 pb-2">
 
                             
-                                        <strong class="text-capitalize" style="font-size : 1rem;" >{{image.profile.user}} </strong>
+                                        <strong class="text-capitalize" style="font-size : 1rem;" >{{image.user}}</strong>
                                         <p class="fst-normal">{{image.caption}} -- {{image.name}}</p>
                                         <!-- <p>{{image.likes}}</p> -->
                                         <p> 
@@ -144,7 +148,7 @@
                                                 {% if comment.image.id == image.id %}
 
                                                 <div>
-                                                    <a href="#" class="fst-normal">{{comment.user}}</a>
+                                                    <a href="#" class="fst-normal text-capitalize">{{comment.user}}</a>
                                                     <span class="fw-light">{{comment.content}}</span>
                                                 </div>
                                                 {% endif %}
