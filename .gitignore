@@ -1,3 +1,5 @@
+.env
+
 def comment(request):
     print("AJAX is working")
 
@@ -298,4 +300,4 @@ def comment(request):
 #     comment= Comment(photo = photo, content = content, user=user)
 #     comment.save_comment()
 #     return render(request , 'comments.html', component)
-    # return redirect('main')
+# return redirect('main')
