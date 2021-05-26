@@ -16,25 +16,18 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 def main(request):
-    
-
-    create_post = request.GET.get('Profile')
-    if create_post  == None:
-        image = Image.objects.all()
-    else:
-        image = Photo.objects.filter(create_post__name=create_post)
-    create_post = Image.objects.all()
-
-    username = request.GET.get('Profile')
-    username = Profile.objects.all()
-
-    # comment = request.GET.get('Comment')
+    image = Image.objects.all()
     comments = Comment.objects.all()
-    # photos = Image.objects.all()
-    context = {'image': image , 'username': username, 'comments': comments}
+
+
+
+
+    context = {'image': image ,'comments': comments}
 
     return render(request , 'main.html', context)
 
+
+# Commenting on a Post 
 @login_required
 def comment(request, image_id):
     photo = Image.objects.get(pk=photo_id)
@@ -53,30 +46,27 @@ def user_profile(request):
 def viewphoto(request):
     return render(request ,'viewphoto.html')
 
-
+# Creating a post
 @login_required
 def create_post(request):
     current_user = request.user
     if request.method == 'POST':
         form = CreatePostForm(request.POST,request.FILES)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = current_user
-            
-        return HttpResponseRedirect('')
+            post = form.save(commit=False)
+            post.user = current_user
+            post.save()
+        return HttpResponseRedirect('/')
            
     else:
         form = CreatePostForm()
-        image = Image.objects.all()
-        return render(request, 'create_post.html', {"form": form, "image":image})
+        return render(request, 'create_post.html', {"form": form})
 
 
 def ignore_nav(request):
     return render(request ,'instagram-nav.html')
 
-
-
-
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -100,6 +90,14 @@ def edit_profile(request):
 def change_password(request):
     return render(request ,'change_password.html')
 
+@login_required
+def email(request):
+    current_user = request.user
+    name = current_user.username
+    email = current_user.email
+    print ('email')
+    send_welcome_email(name, email)
+    return redirect(profile)
 
 # class UserRegistration(generic.CreateView):
 #     form_class = UserCreationForm
