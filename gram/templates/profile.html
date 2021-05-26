@@ -397,9 +397,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
         <div class="profile-image">
   
           {% if user.profile.profile_pic  %}
-          <img src="{{ user.profile.profile_pic.url  }}" alt="" height="150px" width="150px">
+            <img src="{{ user.profile.profile_pic.url  }}" alt="" height="150px" width="150px">
           {% else %}
-          <img src="{% static 'images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="User" />
+            <img src="{% static 'images/Screenshot from 2021-02-22 05-00-53.png' %}" alt="User" />
           {% endif%}
         </div>
   
@@ -438,15 +438,17 @@ Remove or comment-out the code block below to see how the browser will fall-back
   
   <main>
     
-    
+    <div>
+
+    </div>
     
     <div class="container">
         <div class="gallery">
           {% if images %}
             {% for image in images %}
             <div class="gallery-item" tabindex="0">
-              <img src="{{image.image.url}}"  alt="Gallery-1" class="gallery-image">
-              <a href="{% url 'viewphoto' %}" class="btn profile-edit-btn">View Photo</a>
+              <img src="{{image.image.url}}"  alt="Gallery-1" height="250px" width="250px">
+              <a href="" class="btn profile-edit-btn">View Photo</a>
               <div class="gallery-item-info">
                 <ul>
                   <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden></i></li>
@@ -456,8 +458,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
             </div>
             {% endfor %}
           {% else %}
-            <div class="contianer">
-              <h2>No Image Uploaded</h2>
+            <div class="container">
+              <h4>No photos Uploaded yet</h4>
             </div>
           {% endif %}
         </div>

@@ -68,16 +68,16 @@
                             <div class="card">
                                 <div class="card-header p-3">
                                     <div class="d-flex flex-row align-items-center">
-                                        {% if image.profile.profile_pic %}
+                                        
                                         <div
                                             
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger post-profile-photo mr-3">
-                                            <img src="{{ image.profile.profile_pic.url }}" alt="..."
+                                            <img src="{{ image.image.url}}" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;" >
                                                 
                                             
                                         </div>
-                                        {% endif %}
+                                        
                                         <span class="font-weight-bold text-capitalize">{{image.user}}</span>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@
                                     style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                             </div>
                             <div class="profile-info ml-3">
-                                <span class="profile-info-username text-capitalize">{{user.profile.user.username}}</span>
+                                <span class="profile-info-username text-capitalize">{{image.user}}</span>
                                 <span class="profile-info-name">{{user.profile.bio}}</span>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                                             <img src="{{image.profile.profile_pic.url}}" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <strong class="ml-3 sugest-username text-capitalize">{{image.profile.user}}</strong>
+                                        <strong class="ml-3 sugest-username text-capitalize">{{image.user}}</strong>
                                     </div>
                                     <button class="btn btn-primary btn-sm p-0 btn-ig text-capitalize">Follow</button>
                                 </div>

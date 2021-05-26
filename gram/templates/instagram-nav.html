@@ -43,7 +43,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item ml-2 align-middle">
-                                <a href="{% url 'profile' %}" class="link-menu">
+                                <a href="/profile/{{user.username}}" class="link-menu">
                                     <div
                                         class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
                                         <img src="{{ user.profile.profile_pic.url  }}" alt="..."

@@ -15,8 +15,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-    def get_user_by_profile(cls, username):
-        profile = Profile.cls.objects.filter(user__username__contains = username) 
+    @classmethod
+    def get_profile(cls,username):
+        profile = cls.objects.filter(user__username__icontains=username) 
         return profile
 
     @classmethod
@@ -49,8 +50,9 @@ class Image(models.Model):
     def like_count(self):
         return self.likes.count()
 
-    def get_image_by_user(cls, username):
-        images = Image.cls.objects.filter(user__username__contains = username) 
+    @classmethod
+    def get_image_by_user(cls,username):
+        images = cls.objects.filter(user__username__contains=username) 
         return images
 
     @classmethod

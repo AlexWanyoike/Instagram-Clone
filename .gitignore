@@ -286,3 +286,16 @@ def comment(request):
     </form>
 </body>
 </html>
+
+# Commenting on a Post 
+# @login_required
+# def comment(request, image_id):
+#     photo = Image.objects.get(pk=photo_id)
+#     content = request.GET.get("comment")
+#     user = request.user
+#     comments = Comment.objects.all()
+#     component = {'photo': photo , 'comments': comments}
+#     comment= Comment(photo = photo, content = content, user=user)
+#     comment.save_comment()
+#     return render(request , 'comments.html', component)
+    # return redirect('main')

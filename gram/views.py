@@ -23,27 +23,16 @@ def main(request):
 
     return render(request , 'main.html', context)
 
-
-# Commenting on a Post 
 @login_required
-def comment(request, image_id):
-    photo = Image.objects.get(pk=photo_id)
-    content = request.GET.get("comment")
-    user = request.user
-    comments = Comment.objects.all()
-    component = {'photo': photo , 'comments': comments}
-    comment= Comment(photo = photo, content = content, user=user)
-    comment.save_comment()
-    return render(request , 'comments.html', component)
-    # return redirect('main')
+def user_profile(request, username):
 
-def user_profile(request):
+    date = dt.date.today()
     images = Image.get_image_by_user(username)
-    profile = Profile.get_user_by_profile(username)
+    profile = Profile.get_profile(username)
 
-    context = {'images': images ,'profile': profile}
+    context = {'images': images ,'profile': profile, 'date': date}
 
-    return render(request ,'profile.html' ,  )
+    return render(request ,'profile.html' , context )
 
 def viewphoto(request):
     return render(request ,'viewphoto.html')
