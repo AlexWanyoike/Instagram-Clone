@@ -5,13 +5,13 @@ from tinymce.models import HTMLField
 from django.db.models.base import Model
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE , default='')
+    user = models.OneToOneField(User, on_delete=models.CASCADE )
+    name = models.CharField(max_length=30, blank=True)
     profile_pic = models.ImageField(upload_to='media/', default='')
     bio = models.TextField(blank=True, default='')
-    followers = models.IntegerField(default=0, )
-    following = models.IntegerField(default=0, )  
+     
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.user.username
 
     @classmethod
@@ -20,14 +20,15 @@ class Profile(models.Model):
 
 
 class Image(models.Model):
-    name = models.CharField(max_length=30, default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE , null=True)
+    name = models.CharField(max_length=30 , blank=True )
     image = models.ImageField(upload_to='media/')
-    caption = models.TextField(max_length=400, default='')
+    caption = models.TextField(max_length=400, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE , default='')
-    likes = models.ManyToManyField(Profile, related_name="posts", default='')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE , null=True)
+    likes = models.ManyToManyField(Profile, related_name="posts", default=0)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
     def save_image(self):
@@ -47,16 +48,15 @@ class Image(models.Model):
     def get_profile_images(cls,profile):
         return cls.objects.filter(profile = profile)
 
-    # class Meta:
-    #     ordering = ['-post_date']
-
+    class Meta:
+        ordering = ['-date_posted']
 
 
 class Comment(models.Model):
     content = models.TextField()
     post_date = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="comments", default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="comments")
 
     def __str__(self):
         return self.content
@@ -76,8 +76,8 @@ class Comment(models.Model):
 
 class Follow(models.Model): 
     posted = models.DateTimeField(auto_now_add=True)
-    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_followed', default='')
-    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_following', default='')
+    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_followed')
+    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile_following')
 
     def __str__(self):
         return self.pk 
@@ -86,65 +86,3 @@ class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30, default='')
     email = models.EmailField()
 
-
-
-# # Create your models here.
-# # class Create(models.Model):
-# #     full_name = models.CharField(max_length =30)
-# #     user_name = models.CharField(max_length =30)
-# #     email = models.EmailField()
-# #     confirm_email = models.EmailField()
-# #     #phone_number = models.CharField(max_length = 10,blank =True)
-
-# #     def __str__(self):
-# #         return self.full_name
-
-# #     def save_editor(self):
-# #         self.save()
-
-# #     class Meta:
-# #         #Defines the fields and class you have.
-# #         ordering = ['full_name']
-
-# class tags(models.Model):
-#     name = models.CharField(max_length =30)
-
-#     def __str__(self):
-#         return self.name
-
-
-# class Newpost(models.Model):
-
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-#     full_name = models.CharField(max_length=50)
-#     location = models.CharField(max_length=50)
-#     url = models.CharField(max_length=80)
-#     profile_info = models.TextField(max_length=150)
-#     created = models.DateField(auto_now_add=True)
-#     #favorites = models.ManyToManyField(Post)
-#     tags = models.ManyToManyField(tags)
-#     picture = models.ImageField(upload_to='media/', blank=True)
-
-
-    
-#     @classmethod
-#     def todays_news(cls):
-#         today = dt.date.today()
-#         news = cls.objects.filter(pub_date__date = today)
-#         return news
-
-#     @classmethod
-#     def days_news(cls,date):
-#         news = cls.objects.filter(pub_date__date = date)
-#         return news
-
-#     @classmethod
-#     def search_by_title(cls,search_term):
-#         news = cls.objects.filter(title__icontains=search_term)
-#         return news
-
-# class NewsLetterRecipients(models.Model):
-#     name = models.CharField(max_length = 30)
-#     email = models.EmailField()
-
-    

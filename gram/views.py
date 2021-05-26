@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .forms import CreatePostForm, NewsLetterForm
 from .models import Image , Profile , Comment , Follow
 from django import forms
-from .forms import NewsLetterForm, CreatePostForm , UserUpdateForm, ProfileUpdateForm
+from .forms import NewsLetterForm, CreatePostForm
 from django.urls import reverse
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,7 @@ def main(request):
     image = Image.objects.all()
     comments = Comment.objects.all()
 
-
+    
 
 
     context = {'image': image ,'comments': comments}

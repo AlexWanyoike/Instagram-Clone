@@ -10,20 +10,5 @@ class NewsLetterForm(forms.Form):
 class CreatePostForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['profile', 'date_posted ' , 'likes']
-        # widgets = {
-        #     'tags': forms.CheckboxSelectMultiple(),
-        # }
-
-class UserUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['user', 'profile_pic', 'bio']
-        # widgets = {
-        #     'tags': forms.CheckboxSelectMultiple(),
-        # }
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['user', 'profile_pic', 'bio']
+        exclude = ['profile', 'date_posted ' , 'likes', 'user']
+   
