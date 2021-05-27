@@ -11,17 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 
-from django import config , Csv
+from decouple import config , Csv
 
 import django_heroku
 import dj_database_url
-
-
-
-#from config import Config
-
-#from decouple import config 
-
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -126,9 +119,9 @@ if config('MODE')=="dev":
        DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql',
-           'NAME': config('mellanex'),
-           'USER': config('alex'),
-           'PASSWORD': config('roverson3'),
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
            'HOST': config('DB_HOST'),
            'PORT': '',
        }
@@ -166,11 +159,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'code.wanyoike@gmail.com'
-EMAIL_HOST_PASSWORD = '@Roverson12345'
+# Email configurations remember to install python-decouple
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
 # Internationalization
