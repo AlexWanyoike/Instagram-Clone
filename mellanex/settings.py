@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 
-
+from django import config , Csv
 
 import django_heroku
 import dj_database_url
 
-from decouple import config,Csv
 
 
 #from config import Config
